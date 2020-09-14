@@ -1,9 +1,31 @@
 format-version: 1.2
-date: 2020-08-02 20:33:08.874000
+date: 2020-09-13 21:19:41.833000
 remark: namespace: MONO
 remark: creator: Joshua Klein <jaklein <-at-> bu.edu>
 ontology: MONO
 
+
+[Term]
+id: MONO:0A2A057A
+name: Sug
+def: "A generic monosaccharide with 2 backbone carbons"
+synonym: "RES\n1b:x-SUG-x:x\nLIN\n" EXACT
+synonym: "?-?-Sugx" EXACT
+synonym: "uh" EXACT
+synonym: "Sug" EXACT
+property_value: has_chemical_formula "C2H2O1" xsd:string
+property_value: has_monoisotopic_mass "42.0105646837" xsd:float
+
+[Term]
+id: MONO:6BAAE1B1
+name: Tri
+def: "A generic monosaccharide with 3 backbone carbons"
+synonym: "RES\n1b:x-TRI-x:x\nLIN\n" EXACT
+synonym: "?-?-Trix" EXACT
+synonym: "uxh" EXACT
+synonym: "Tri" EXACT
+property_value: has_chemical_formula "C3H4O2" xsd:string
+property_value: has_monoisotopic_mass "72.0211293674" xsd:float
 
 [Term]
 id: MONO:2281E39B
@@ -83,28 +105,6 @@ property_value: has_chemical_formula "C10H18O9" xsd:string
 property_value: has_monoisotopic_mass "282.095082153" xsd:float
 
 [Term]
-id: MONO:0A2A057A
-name: Sug
-def: "A generic monosaccharide with 2 backbone carbons"
-synonym: "RES\n1b:x-SUG-x:x\nLIN\n" EXACT
-synonym: "?-?-Sugx" EXACT
-synonym: "uh" EXACT
-synonym: "Sug" EXACT
-property_value: has_chemical_formula "C2H2O1" xsd:string
-property_value: has_monoisotopic_mass "42.0105646837" xsd:float
-
-[Term]
-id: MONO:6BAAE1B1
-name: Tri
-def: "A generic monosaccharide with 3 backbone carbons"
-synonym: "RES\n1b:x-TRI-x:x\nLIN\n" EXACT
-synonym: "?-?-Trix" EXACT
-synonym: "uxh" EXACT
-synonym: "Tri" EXACT
-property_value: has_chemical_formula "C3H4O2" xsd:string
-property_value: has_monoisotopic_mass "72.0211293674" xsd:float
-
-[Term]
 id: MONO:0C4F1FA5
 name: d-Hex
 def: "d-Hex"
@@ -128,13 +128,13 @@ property_value: has_chemical_formula "C6H10O4" xsd:string
 property_value: has_monoisotopic_mass "146.057908799" xsd:float
 
 [Term]
-id: MONO:37FB5CAA
-name: en,6-a-Hex
-def: "en,6-a-Hex"
-synonym: "RES\n1b:x-HEX-x:x|-1:en|6:a\nLIN\n" EXACT
-synonym: "?-?-en,6-a-Hexx" EXACT
-synonym: "uxxxEA" EXACT
-synonym: "en,6-aHex" EXACT
+id: MONO:3E923C03
+name: en,a-Hex
+def: "en,a-Hex"
+synonym: "RES\n1b:x-HEX-x:x|-1:en|-1:a\nLIN\n" EXACT
+synonym: "?-?-en,a-Hexx" EXACT
+synonym: "en,aHex" EXACT
+synonym: "enHexA" EXACT
 property_value: has_chemical_formula "C6H6O5" xsd:string
 property_value: has_monoisotopic_mass "158.02152329" xsd:float
 
@@ -150,13 +150,13 @@ property_value: has_chemical_formula "C6H11N1O4" xsd:string
 property_value: has_monoisotopic_mass "161.068807836" xsd:float
 
 [Term]
-id: MONO:4C67C93F
-name: 6-a-Hex
-def: "6-a-Hex"
-synonym: "RES\n1b:x-HEX-x:x|6:a\nLIN\n" EXACT
-synonym: "?-?-6-a-Hexx" EXACT
-synonym: "uxxxxA" EXACT
-synonym: "6-aHex" EXACT
+id: MONO:0996D6B5
+name: a-Hex
+def: "a-Hex"
+synonym: "RES\n1b:x-HEX-x:x|-1:a\nLIN\n" EXACT
+synonym: "?-?-a-Hexx" EXACT
+synonym: "aHex" EXACT
+synonym: "HexA" EXACT
 property_value: has_chemical_formula "C6H8O6" xsd:string
 property_value: has_monoisotopic_mass "176.032087974" xsd:float
 

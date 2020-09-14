@@ -45,38 +45,15 @@ for t in supercls_entities:
 
 seen = set()
 handled_monos = set()
-# for lab, stem in glypy.structure.Stem:
-#     if stem in seen:
-#         continue
-#     seen.add(stem)
-#     if stem.name == 'x':
-#         continue
-#     try:
-#         mono = from_iupac_lite(stem.name.title())
-#         handled_monos.add(mono)
-#         mono_tp = {
-#             "id": "MONO:%s" % hex(abs(zlib.crc32(str(mono) + formula(mono.total_composition())))).upper()[2:].zfill(8),
-#             "name": str(mono),
-#             "def": "A monosaccharide with %d backbone carbons and characteristic stereoisometry %r" % (
-#                 mono.superclass.value, '-'.join(map(lambda x: str(x).title(), mono.stem))),
-#             "synonyms": [
-#                 dialect(mono) for dialect in [glycoct.dumps, iupac.dumps, wurcs.dumps,
-#                                               lambda x: to_iupac_lite(x)]
-#                 if dialect(mono) != str(mono)
-#             ] + [s for s in synonyms.monosaccharides[str(mono)] if s != str(mono)],
-#             "property_value": [
-#                 "has_chemical_formula \"%s\" %s" % (formula(mono.total_composition()),
-#                                                     obj_to_xsdtype(unicode(formula(mono.total_composition())))),
-#                 "has_monoisotopic_mass \"%s\" %s" % (mono.mass(), obj_to_xsdtype(mono.mass())),
-#             ]
-#         }
-#         parser.current_term = (mono_tp)
-#         parser.pack()
-#     except iupac.IUPACError as err:
-#         print(err)
+
+def to_format(dialect, mono):
+    try:
+        return dialect(mono)
+    except ValueError:
+        return None
 
 for label in ["dHex", "Fuc", "HexN", "HexNAc", "HexS", "HexP", "HexNAc(S)",
-              "NeuAc", "NeuGc", "Neu", "HexNS", "6-aHex", "en,6-aHex"]:
+              "NeuAc", "NeuGc", "Neu", "HexNS", "aHex", "en,aHex"]:
     try:
         mono = from_iupac_lite(label)
 #         handled_monos.add(mono)
@@ -84,11 +61,11 @@ for label in ["dHex", "Fuc", "HexN", "HexNAc", "HexS", "HexP", "HexNAc(S)",
             "id": "MONO:%s" % hex(abs(zlib.crc32(str(mono) + formula(mono.total_composition())))).upper()[2:].zfill(8),
             "name": str(mono),
             "def": str(mono),
-            "synonyms": [
-                dialect(mono) for dialect in [glycoct.dumps, iupac.dumps, wurcs.dumps,
+            "synonyms": list(filter(bool, [
+                to_format(dialect, mono) for dialect in [glycoct.dumps, iupac.dumps, wurcs.dumps,
                                               lambda x: to_iupac_lite(x)]
-                if dialect(mono) != str(mono)
-            ] + [s for s in synonyms.monosaccharides.get(str(mono), []) if s != str(mono)] + [label],
+                if to_format(dialect, mono) != str(mono)
+            ])) + [s for s in synonyms.monosaccharides.get(str(mono), []) if s != str(mono)] + [label],
             "property_value": [
                 "has_chemical_formula \"%s\" %s" % (formula(mono.total_composition()),
                                                     obj_to_xsdtype(unicode(formula(mono.total_composition())))),
@@ -104,6 +81,13 @@ parser._connect_parents()
 parser._simplify_header_information()
 
 cv = ControlledVocabulary(parser.terms)
+
+cv["a-Hex"].synonyms.append("aHex")
+cv["a-Hex"].synonyms.append("HexA")
+cv["a-Hex"].synonyms.append("aHex")
+cv["en,a-Hex"].synonyms.append("enHexA")
+cv["en,a-Hex"].synonyms.append("en,aHex")
+
 
 def write_header(self, header, stream):
     for key, value in header:
