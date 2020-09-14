@@ -1,5 +1,5 @@
 format-version: 1.2
-date: 2020-09-13 21:19:41.833000
+date: 2020-09-13 21:35:23.314000
 remark: namespace: MONO
 remark: creator: Joshua Klein <jaklein <-at-> bu.edu>
 ontology: MONO
@@ -103,6 +103,22 @@ synonym: "uxxxxxxxxh" EXACT
 synonym: "Dec" EXACT
 property_value: has_chemical_formula "C10H18O9" xsd:string
 property_value: has_monoisotopic_mass "282.095082153" xsd:float
+
+[Term]
+id: MONO:70565C17
+name: sulfate
+def: "sulfate"
+synonym: "S" EXACT
+property_value: has_chemical_formula "H0O3S1" xsd:string
+property_value: has_monoisotopic_mass "79.9568148587" xsd:float
+
+[Term]
+id: MONO:095E7DD0
+name: phosphate
+def: "phosphate"
+synonym: "P" EXACT
+property_value: has_chemical_formula "H1O3P1" xsd:string
+property_value: has_monoisotopic_mass "79.9663305208" xsd:float
 
 [Term]
 id: MONO:0C4F1FA5

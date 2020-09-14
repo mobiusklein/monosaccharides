@@ -77,6 +77,28 @@ for label in ["dHex", "Fuc", "HexN", "HexNAc", "HexS", "HexP", "HexNAc(S)",
     except iupac.IUPACError as err:
         print(err)
 
+for label, synonyms_ in [("sulfate", ['S']), ("phosphate", ['P'])]:
+    try:
+        subst = from_iupac_lite(label)
+        mono_tp = {
+            "id": "MONO:%s" % hex(abs(zlib.crc32(str(subst) + formula(subst.total_composition())))).upper()[2:].zfill(8),
+            "name": str(subst).replace("@", ''),
+            "def": str(subst).replace("@", ''),
+            "synonyms": synonyms_,
+            "property_value": [
+                "has_chemical_formula \"%s\" %s" % (formula(subst.total_composition()),
+                                                    obj_to_xsdtype(unicode(formula(subst.total_composition())))),
+                "has_monoisotopic_mass \"%s\" %s" % (
+                    subst.mass(), obj_to_xsdtype(subst.mass())),
+            ]
+        }
+        parser.current_term = (mono_tp)
+        parser.pack()
+    except iupac.IUPACError as err:
+        print(err)
+
+
+
 parser._connect_parents()
 parser._simplify_header_information()
 

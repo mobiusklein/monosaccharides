@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "date": "2020-09-13 21:19:41.833000", 
+    "date": "2020-09-13 21:35:23.314000", 
     "format-version": "1.2", 
     "ontology": "MONO", 
     "remark": [
@@ -20,6 +20,16 @@
         "?-?-Hepx", 
         "uxxxxxh", 
         "Hep"
+      ]
+    }, 
+    "MONO:095E7DD0": {
+      "def": "\"phosphate\"", 
+      "has_chemical_formula": "H1O3P1", 
+      "has_monoisotopic_mass": 79.9663305208, 
+      "id": "MONO:095E7DD0", 
+      "name": "phosphate", 
+      "synonym": [
+        "P"
       ]
     }, 
     "MONO:0996D6B5": {
@@ -283,6 +293,16 @@
         "?-?-Octx", 
         "uxxxxxxh", 
         "Oct"
+      ]
+    }, 
+    "MONO:70565C17": {
+      "def": "\"sulfate\"", 
+      "has_chemical_formula": "H0O3S1", 
+      "has_monoisotopic_mass": 79.9568148587, 
+      "id": "MONO:70565C17", 
+      "name": "sulfate", 
+      "synonym": [
+        "S"
       ]
     }, 
     "MONO:7AB4EB73": {
